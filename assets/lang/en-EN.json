@@ -1,0 +1,445 @@
+{
+  "culture": {
+    "id": 5,
+    "createdDate": "2025-03-07T02:17:53.552785",
+    "lastModifiedDate": null,
+    "name": "en-EN",
+    "title": "English"
+  },
+  "resources": [
+    {
+      "key": "errorMessageDialogTitle",
+      "value": "Error"
+    },
+    {
+      "key": "forceUpdateDialogTitle",
+      "value": "Update Required"
+    },
+    {
+      "key": "forceUpdateDialogMessage",
+      "value": "A new version of the application is available. Please update to the latest version."
+    },
+    {
+      "key": "fieldRequired",
+      "value": "This field is required."
+    },
+    {
+      "key": "passwordMustBeAtLeastFourCharacters",
+      "value": "Password must be at least 4 characters."
+    },
+    {
+      "key": "passwordsDoNotMatch",
+      "value": "Passwords do not match."
+    },
+    {
+      "key": "enterValidEmail",
+      "value": "Please enter a valid email address."
+    },
+    {
+      "key": "unknownErrorOccured",
+      "value": "An unknown error occurred."
+    },
+    {
+      "key": "operationSuccessful",
+      "value": "Operation successful."
+    },
+    {
+      "key": "tryAgainLater",
+      "value": "Please try again later."
+    },
+    {
+      "key": "userAgreementText",
+      "value": "I have read and agree to the user agreement."
+    },
+    {
+      "key": "confidentialityAgreementText",
+      "value": "I have read and agree to the privacy policy."
+    },
+    {
+      "key": "search",
+      "value": "Search"
+    },
+    {
+      "key": "dataNotFoundDescription",
+      "value": "No data found."
+    },
+    {
+      "key": "code",
+      "value": "Code"
+    },
+    {
+      "key": "phone",
+      "value": "Phone"
+    },
+    {
+      "key": "contactUs",
+      "value": "Contact Us"
+    },
+    {
+      "key": "mailSubject",
+      "value": "About Credit Book"
+    },
+    {
+      "key": "login",
+      "value": "Login"
+    },
+    {
+      "key": "register",
+      "value": "Register"
+    },
+    {
+      "key": "userAgreementValidationMessage",
+      "value": "The User Agreement must be accepted."
+    },
+    {
+      "key": "confidentialityAgreementValidationMessage",
+      "value": "Confidentiality Agreement must be accepted."
+    },
+    {
+      "key": "forgotPassword",
+      "value": "Forgot Password"
+    },
+    {
+      "key": "password",
+      "value": "Password"
+    },
+    {
+      "key": "passwordAgain",
+      "value": "Password Again"
+    },
+    {
+      "key": "username",
+      "value": "Username"
+    },
+    {
+      "key": "creditBook",
+      "value": "Credit Book"
+    },
+    {
+      "key": "licenseName",
+      "value": "License Name"
+    },
+    {
+      "key": "all",
+      "value": "All"
+    },
+    {
+      "key": "creditors",
+      "value": "Creditors"
+    },
+    {
+      "key": "debtors",
+      "value": "Debtors"
+    },
+    {
+      "key": "total",
+      "value": "Total"
+    },
+    {
+      "key": "receivable",
+      "value": "Receivable"
+    },
+    {
+      "key": "debt",
+      "value": "Debt"
+    },
+    {
+      "key": "addCurrent",
+      "value": "Add Current"
+    },
+    {
+      "key": "balance",
+      "value": "Balance"
+    },
+    {
+      "key": "accountActivities",
+      "value": "Account Activities"
+    },
+    {
+      "key": "accounts",
+      "value": "Accounts"
+    },
+    {
+      "key": "filter",
+      "value": "Filter"
+    },
+    {
+      "key": "editCurrent",
+      "value": "Edit Current"
+    },
+    {
+      "key": "deletionConfirmation",
+      "value": "Deletion Confirmation"
+    },
+    {
+      "key": "deletionConfirmationContent",
+      "value": "This action cannot be undone. Are you sure you want to continue?"
+    },
+    {
+      "key": "delete",
+      "value": "Delete"
+    },
+    {
+      "key": "giveUp",
+      "value": "Give Up"
+    },
+    {
+      "key": "currentName",
+      "value": "Current Name"
+    },
+    {
+      "key": "phoneNumber",
+      "value": "Phone Number"
+    },
+    {
+      "key": "dues",
+      "value": "Dues"
+    },
+    {
+      "key": "address",
+      "value": "Address"
+    },
+    {
+      "key": "save",
+      "value": "Save"
+    },
+    {
+      "key": "somethingWentWrongDescription",
+      "value": "Something went wrong. Please try again later."
+    },
+    {
+      "key": "startDate",
+      "value": "Start Date"
+    },
+    {
+      "key": "endDate",
+      "value": "End Date"
+    },
+    {
+      "key": "editAlacak",
+      "value": "Edit Receivable"
+    },
+    {
+      "key": "addAlacak",
+      "value": "Add Receivable"
+    },
+    {
+      "key": "editBorc",
+      "value": "Edit Debt"
+    },
+    {
+      "key": "addBorc",
+      "value": "Add Debt"
+    },
+    {
+      "key": "date",
+      "value": "Date"
+    },
+    {
+      "key": "customerName",
+      "value": "Customer Name"
+    },
+    {
+      "key": "alacak",
+      "value": "Receivable"
+    },
+    {
+      "key": "thisFieldIsRequired",
+      "value": "This field is required."
+    },
+    {
+      "key": "validationMustBeGreaterThanZero",
+      "value": "This field must be greater than zero."
+    },
+    {
+      "key": "borc",
+      "value": "Debt"
+    },
+    {
+      "key": "totalPrice",
+      "value": "Total Price"
+    },
+    {
+      "key": "description",
+      "value": "Description"
+    },
+    {
+      "key": "forgotPasswordExplain",
+      "value": "We will send a code to reset your password. Please enter the phone number you registered with."
+    },
+    {
+      "key": "next",
+      "value": "Next"
+    },
+    {
+      "key": "name",
+      "value": "Name"
+    },
+    {
+      "key": "surname",
+      "value": "Surname"
+    },
+    {
+      "key": "userInformations",
+      "value": "User Information"
+    },
+    {
+      "key": "licenseInformations",
+      "value": "License Information"
+    },
+    {
+      "key": "settings",
+      "value": "Settings"
+    },
+    {
+      "key": "themeSelection",
+      "value": "Theme Selection"
+    },
+    {
+      "key": "darkMode",
+      "value": "Dark Mode"
+    },
+    {
+      "key": "lightMode",
+      "value": "Light Mode"
+    },
+    {
+      "key": "cultureSelection",
+      "value": "Language Selection"
+    },
+    {
+      "key": "licenseNumber",
+      "value": "License Number"
+    },
+    {
+      "key": "licenseTime",
+      "value": "License Time"
+    },
+    {
+      "key": "extendTime",
+      "value": "Extend Time"
+    },
+    {
+      "key": "updatePassword",
+      "value": "Update Password"
+    },
+    {
+      "key": "updatePasswordDescription1",
+      "value": "Enter your current password to verify."
+    },
+    {
+      "key": "updatePasswordDescription2",
+      "value": "Please fill in the \"Password\" and \"Password Again\" fields."
+    },
+    {
+      "key": "currentPassword",
+      "value": "Current Password"
+    },
+    {
+      "key": "pleaseCheckYourNetworkConnection",
+      "value": "Please check your internet connection."
+    },
+    {
+      "key": "dataNotFoundToDisplay",
+      "value": "No data found to display."
+    },
+    {
+      "key": "debit",
+      "value": "Debit"
+    },
+    {
+      "key": "credit",
+      "value": "Credit"
+    },
+    {
+      "key": "securityCodeMustBeAtLeastSixCharacters",
+      "value": "Verification code must be at least 6 characters."
+    },
+    {
+      "key": "securityCode",
+      "value": "Verification Code"
+    },
+    {
+      "key": "validationMustBeLessThanOneHundredMillion",
+      "value": "This field must be less than 100,000,000."
+    },
+    {
+      "key": "admin",
+      "value": "Admin"
+    },
+    {
+      "key": "ok",
+      "value": "OK"
+    },
+    {
+      "key": "cancel",
+      "value": "Cancel"
+    },
+    {
+      "key": "signOut",
+      "value": "Sign Out"
+    },
+    {
+      "key": "hello",
+      "value": "Hello"
+    },
+    {
+      "key": "mailBody",
+      "value": "If you have any complaints or suggestions, you can write your message below."
+    },
+    {
+      "key": "phoneInformations",
+      "value": "Phone Information"
+    },
+    {
+      "key": "accept",
+      "value": "Accept"
+    },
+    {
+      "key": "inAppPurchaseError",
+      "value": "An error occurred during the purchase process."
+    },
+    {
+      "key": "inAppPurchaseLoadingError",
+      "value": "Purchase products cannot be loaded at this time. Please try again later."
+    },
+    {
+      "key": "inAppPurchaseSuccess",
+      "value": "Purchase completed successfully."
+    },
+    {
+      "key": "inAppPurchasePending",
+      "value": "Purchase is pending. Please wait for the process to complete."
+    },
+    {
+      "key": "inAppPurchaseCanceled",
+      "value": "Purchase has been canceled."
+    },
+    {
+      "key": "selectPackageForExtendTime",
+      "value": "Select a package to extend the time"
+    },
+    {
+      "key": "licenseInformationExtendTimeNotAllowed",
+      "value": "You cannot extend your license period. Please contact support."
+    },
+    {
+      "key": "licenseExpired",
+      "value": "Your license has expired. Please extend your license to continue using the application."
+    },
+    {
+      "key": "yes",
+      "value": "Yes"
+    },
+    {
+      "key": "no",
+      "value": "No"
+    },
+    {
+      "key": "dublicateConfirmationQuestion",
+      "value": "Are you sure you want to duplicate this transaction?"
+    }
+  ]
+}
+
+

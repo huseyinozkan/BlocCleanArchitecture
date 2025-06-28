@@ -1,0 +1,102 @@
+name: bloc_clean_architecture
+description: "A new Flutter project."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.4 <4.0.0"
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+
+  #İyi bir pakettir. :)
+  flutter_core:
+    git:
+      url: https://github.com/huseyinozkan/Flutter-Core.git
+      ref: main
+
+  # Dependency injection
+  get_it: ^8.0.2
+  injectable: ^2.4.2
+
+  # State management
+  bloc: ^8.1.4
+  bloc_concurrency: ^0.2.5
+  flutter_bloc: ^8.1.5
+  hydrated_bloc: ^9.1.5
+  rxdart: ^0.28.0
+
+  # Model configuration
+  equatable: ^2.0.5
+  json_annotation: ^4.8.1
+
+  # UI
+  cupertino_icons: ^1.0.6
+  skeletonizer: ^1.1.1
+  pinput: ^5.0.0
+  smart_auth: ^3.2.0
+  flutter_html: ^3.0.0
+
+  # Router
+  go_router: ^14.2.8
+
+  # Config
+  flutter_gen: ^5.7.0
+  google_fonts: ^6.2.1
+
+  # Database
+  encrypt: ^5.0.3
+
+  # Others
+  url_launcher: ^6.3.1
+  webview_flutter_wkwebview: ^3.17.0
+  webview_flutter_android: ^4.2.0
+  webview_flutter: ^4.10.0
+  flutter_svg: ^2.0.17
+  flutter_native_contact_picker: ^0.0.10
+  in_app_purchase: ^3.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  build_runner: ^2.4.9
+  injectable_generator: ^2.6.2
+  json_serializable: ^6.9.0
+  very_good_analysis: ^7.0.0
+  flutter_gen_runner: ^5.7.0
+  icons_launcher: ^3.0.0
+
+flutter_gen:
+  output: lib/src/common/gen/
+  line_length: 800
+
+flutter:
+  uses-material-design: true
+  assets:
+    - ci_cd/assets/
+    - assets/flags/
+    - assets/images/
+    - assets/lang/
+    - assets/phone_codes/
+
+scripts:
+  brunner: dart run build_runner build --delete-conflicting-outputs
+  bwatch: dart run build_runner watch --delete-conflicting-outputs
+  deploy-dev: sh ci_cd/scripts/deploy.sh dev
+  deploy-prod: sh ci_cd/scripts/deploy.sh prod
+
+icons_launcher:
+  image_path: "ci_cd/assets/dev.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true

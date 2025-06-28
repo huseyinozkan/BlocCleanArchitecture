@@ -1,0 +1,16 @@
+[
+  {
+      "id": 5,
+      "createdDate": "2025-03-07T02:17:53.552785",
+      "lastModifiedDate": null,
+      "name": "en-EN",
+      "title": "English"
+  },
+  {
+      "id": 6,
+      "createdDate": "2025-03-08T01:09:29.572097",
+      "lastModifiedDate": null,
+      "name": "tr-TR",
+      "title": "Türkçe"
+  }
+]

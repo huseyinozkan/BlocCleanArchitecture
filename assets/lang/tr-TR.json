@@ -1,0 +1,443 @@
+{
+  "culture": {
+    "id": 6,
+    "createdDate": "2025-03-08T01:09:29.572097",
+    "lastModifiedDate": null,
+    "name": "tr-TR",
+    "title": "Türkçe"
+  },
+  "resources": [
+    {
+      "key": "errorMessageDialogTitle",
+      "value": "Hata"
+    },
+    {
+      "key": "forceUpdateDialogTitle",
+      "value": "Güncelleme Mevcut"
+    },
+    {
+      "key": "forceUpdateDialogMessage",
+      "value": "Uygulamanızın güncel bir sürümü mevcut. Lütfen uygulamanızı güncelleyin."
+    },
+    {
+      "key": "fieldRequired",
+      "value": "Bu alan zorunludur."
+    },
+    {
+      "key": "passwordMustBeAtLeastFourCharacters",
+      "value": "Şifreniz en az 4 karakter olmalıdır."
+    },
+    {
+      "key": "passwordsDoNotMatch",
+      "value": "Şifreler uyuşmuyor."
+    },
+    {
+      "key": "enterValidEmail",
+      "value": "Geçerli bir e-posta adresi giriniz."
+    },
+    {
+      "key": "unknownErrorOccured",
+      "value": "Beklenmeyen bir hata oluştu."
+    },
+    {
+      "key": "operationSuccessful",
+      "value": "İşlem başarılı."
+    },
+    {
+      "key": "tryAgainLater",
+      "value": "Lütfen daha sonra tekrar deneyin."
+    },
+    {
+      "key": "userAgreementText",
+      "value": "Kullanıcı sözleşmesini okudum onaylıyorum."
+    },
+    {
+      "key": "confidentialityAgreementText",
+      "value": "Gizlilik sözleşmesi okudum onaylıyorum."
+    },
+    {
+      "key": "search",
+      "value": "Ara"
+    },
+    {
+      "key": "dataNotFoundDescription",
+      "value": "Veri bulunamadı."
+    },
+    {
+      "key": "code",
+      "value": "Kod"
+    },
+    {
+      "key": "phone",
+      "value": "Telefon"
+    },
+    {
+      "key": "contactUs",
+      "value": "Bize Ulaşın"
+    },
+    {
+      "key": "mailSubject",
+      "value": "Veresiye Defteri Hakkında"
+    },
+    {
+      "key": "login",
+      "value": "Giriş"
+    },
+    {
+      "key": "register",
+      "value": "Kayıt Ol"
+    },
+    {
+      "key": "userAgreementValidationMessage",
+      "value": "Kullanıcı Sözleşmesi kabul edilmelidir."
+    },
+    {
+      "key": "confidentialityAgreementValidationMessage",
+      "value": "Gizlilik Sözleşmesi kabul edilmelidir."
+    },
+    {
+      "key": "forgotPassword",
+      "value": "Şifremi Unuttum"
+    },
+    {
+      "key": "password",
+      "value": "Şifre"
+    },
+    {
+      "key": "passwordAgain",
+      "value": "Şifre Tekrar"
+    },
+    {
+      "key": "username",
+      "value": "Kullanıcı Adı"
+    },
+    {
+      "key": "creditBook",
+      "value": "Veresiye Defteri"
+    },
+    {
+      "key": "licenseName",
+      "value": "Lisans Adı"
+    },
+    {
+      "key": "all",
+      "value": "Tümü"
+    },
+    {
+      "key": "creditors",
+      "value": "Alacaklılar"
+    },
+    {
+      "key": "debtors",
+      "value": "Borçlular"
+    },
+    {
+      "key": "total",
+      "value": "Toplam"
+    },
+    {
+      "key": "receivable",
+      "value": "Alacak"
+    },
+    {
+      "key": "debt",
+      "value": "Borç"
+    },
+    {
+      "key": "addCurrent",
+      "value": "Cari Ekle"
+    },
+    {
+      "key": "balance",
+      "value": "Bakiye"
+    },
+    {
+      "key": "accountActivities",
+      "value": "Hesap Hareketleri"
+    },
+    {
+      "key": "accounts",
+      "value": "Hesaplar"
+    },
+    {
+      "key": "filter",
+      "value": "Filtrele"
+    },
+    {
+      "key": "editCurrent",
+      "value": "Cari Düzenle"
+    },
+    {
+      "key": "deletionConfirmation",
+      "value": "Silme Onayı"
+    },
+    {
+      "key": "deletionConfirmationContent",
+      "value": "Bu işlem geri alınamaz. Devam etmek istediğinize emin misiniz?"
+    },
+    {
+      "key": "delete",
+      "value": "Sil"
+    },
+    {
+      "key": "giveUp",
+      "value": "Vazgeç"
+    },
+    {
+      "key": "currentName",
+      "value": "Cari Adı"
+    },
+    {
+      "key": "phoneNumber",
+      "value": "Telefon Numarası"
+    },
+    {
+      "key": "dues",
+      "value": "Borçlar"
+    },
+    {
+      "key": "address",
+      "value": "Adres"
+    },
+    {
+      "key": "save",
+      "value": "Kaydet"
+    },
+    {
+      "key": "somethingWentWrongDescription",
+      "value": "Bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+    },
+    {
+      "key": "startDate",
+      "value": "Başlangıç Tarihi"
+    },
+    {
+      "key": "endDate",
+      "value": "Bitiş Tarihi"
+    },
+    {
+      "key": "editAlacak",
+      "value": "Alacak Düzenle"
+    },
+    {
+      "key": "addAlacak",
+      "value": "Alacak Ekle"
+    },
+    {
+      "key": "editBorc",
+      "value": "Borç Düzenle"
+    },
+    {
+      "key": "addBorc",
+      "value": "Borç Ekle"
+    },
+    {
+      "key": "date",
+      "value": "Tarih"
+    },
+    {
+      "key": "customerName",
+      "value": "Müşteri Adı"
+    },
+    {
+      "key": "alacak",
+      "value": "Alacak"
+    },
+    {
+      "key": "thisFieldIsRequired",
+      "value": "Bu alan zorunludur."
+    },
+    {
+      "key": "validationMustBeGreaterThanZero",
+      "value": "Bu alan sıfırdan büyük olmalıdır."
+    },
+    {
+      "key": "borc",
+      "value": "Borç"
+    },
+    {
+      "key": "totalPrice",
+      "value": "Toplam Fiyat"
+    },
+    {
+      "key": "description",
+      "value": "Açıklama"
+    },
+    {
+      "key": "forgotPasswordExplain",
+      "value": "Şifrenizi yenilemek için kod göndereceğiz. Lütfen kayıt olduğunuz telefon numaranızı girin."
+    },
+    {
+      "key": "next",
+      "value": "İleri"
+    },
+    {
+      "key": "name",
+      "value": "Adı"
+    },
+    {
+      "key": "surname",
+      "value": "Soyadı"
+    },
+    {
+      "key": "userInformations",
+      "value": "Kullanıcı Bilgileri"
+    },
+    {
+      "key": "licenseInformations",
+      "value": "Lisans Bilgileri"
+    },
+    {
+      "key": "settings",
+      "value": "Ayarlar"
+    },
+    {
+      "key": "themeSelection",
+      "value": "Tema Seçimi"
+    },
+    {
+      "key": "darkMode",
+      "value": "Koyu Mod"
+    },
+    {
+      "key": "lightMode",
+      "value": "Açık Mod"
+    },
+    {
+      "key": "cultureSelection",
+      "value": "Dil Seçimi"
+    },
+    {
+      "key": "licenseNumber",
+      "value": "Lisans Numarası"
+    },
+    {
+      "key": "licenseTime",
+      "value": "Lisans Süresi"
+    },
+    {
+      "key": "extendTime",
+      "value": "Süre Uzat"
+    },
+    {
+      "key": "updatePassword",
+      "value": "Şifre Güncelle"
+    },
+    {
+      "key": "updatePasswordDescription1",
+      "value": "Doğrulamak için mevcut şifrenizi giriniz."
+    },
+    {
+      "key": "updatePasswordDescription2",
+      "value": "Lütfen \"Şifre\" ve \"Şifre Tekrar\" alanlarını doldurunuz."
+    },
+    {
+      "key": "currentPassword",
+      "value": "Mevcut Şifre"
+    },
+    {
+      "key": "pleaseCheckYourNetworkConnection",
+      "value": "Lütfen internet bağlantınızı kontrol ediniz."
+    },
+    {
+      "key": "dataNotFoundToDisplay",
+      "value": "Listenelenecek veri bulunamadı."
+    },
+    {
+      "key": "debit",
+      "value": "Borç"
+    },
+    {
+      "key": "credit",
+      "value": "Alacak"
+    },
+    {
+      "key": "securityCodeMustBeAtLeastSixCharacters",
+      "value": "Doğrulama kodu en az 6 karakter olmalıdır."
+    },
+    {
+      "key": "securityCode",
+      "value": "Doğrulama Kodu"
+    },
+    {
+      "key": "validationMustBeLessThanOneHundredMillion",
+      "value": "Bu alan 100.000.000'den küçük olmalıdır."
+    },
+    {
+      "key": "admin",
+      "value": "Admin"
+    },
+    {
+      "key": "ok",
+      "value": "Tamam"
+    },
+    {
+      "key": "cancel",
+      "value": "İptal"
+    },
+    {
+      "key": "signOut",
+      "value": "Çıkış Yap"
+    },
+    {
+      "key": "hello",
+      "value": "Merhaba"
+    },
+    {
+      "key": "mailBody",
+      "value": "Şikayetiniz ya da öneriniz varsa aşağıya mesajınızı yazabilirsiniz."
+    },
+    {
+      "key": "phoneInformations",
+      "value": "Telefon Bilgileri"
+    },
+    {
+      "key": "accept",
+      "value": "Kabul Et"
+    },
+    {
+      "key": "inAppPurchaseError",
+      "value": "Satın alma işlemi sırasında bir hata oluştu."
+    },
+    {
+      "key": "inAppPurchaseLoadingError",
+      "value": "Satın alma ürünleri şu anda yüklenemiyor. Lütfen daha sonra tekrar deneyin."
+    },
+    {
+      "key": "inAppPurchaseSuccess",
+      "value": "Satın alma işlemi başarılı."
+    },
+    {
+      "key": "inAppPurchasePending",
+      "value": "Satın alma işlemi beklemede. Lütfen işlemin tamamlanmasını bekleyin."
+    },
+    {
+      "key": "inAppPurchaseCanceled",
+      "value": "Satın alma işlemi iptal edildi."
+    },
+    {
+      "key": "selectPackageForExtendTime",
+      "value": "Süre uzatmak için bir paket seçin"
+    },
+    {
+      "key": "licenseInformationExtendTimeNotAllowed",
+      "value": "Lisans sürenizi uzatamazsınız. Lütfen destek ile iletişime geçin."
+    },
+    {
+      "key": "licenseExpired",
+      "value": "Lisans süreniz dolmuştur. Kullanıma devam edebilmek için lütfen lisansınızı uzatın."
+    },
+    {
+      "key": "yes",
+      "value": "Evet"
+    },
+    {
+      "key": "no",
+      "value": "Hayır"
+    },
+    {
+      "key": "dublicateConfirmationQuestion",
+      "value": "Bu hareketi kopyalamak istediğinize emin misiniz?"
+    }
+  ]
+}
