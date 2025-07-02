@@ -39,7 +39,6 @@ dependencies:
 
   # UI
   cupertino_icons: ^1.0.6
-  skeletonizer: ^1.1.1
   pinput: ^5.0.0
   smart_auth: ^3.2.0
   flutter_html: ^3.0.0
@@ -62,6 +61,7 @@ dependencies:
   flutter_svg: ^2.0.17
   flutter_native_contact_picker: ^0.0.10
   in_app_purchase: ^3.2.3
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:

@@ -37,3 +37,7 @@ final class ProductDto with BaseModel<ProductDto> {
   @override
   ProductDto fromJson(Map<String, Object?> json) => _$ProductDtoFromJson(json);
 }
+
+extension ProductDtoExtension on ProductDto {
+  String get priceToCurrency => '${Core.doubleToCurrency(price ?? 0)} ₺';
+}

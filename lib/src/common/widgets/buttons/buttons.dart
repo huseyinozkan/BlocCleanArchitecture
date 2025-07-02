@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc_clean_architecture/src/common/widgets/buttons/button_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_core/flutter_core.dart';
@@ -61,5 +63,29 @@ final class MyOutlinedButton extends MyButtonBase {
       minSize: minSize,
       child: child,
     );
+  }
+}
+
+@immutable
+final class MyIconButton extends StatelessWidget {
+  const MyIconButton({required this.icon, required this.onPressed, super.key});
+
+  final Widget icon;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Platform.isIOS || Platform.isMacOS
+        ? CoreIconButton(
+            icon: icon,
+            onPressed: onPressed,
+            radius: 0,
+          )
+        : IconButton(
+            icon: icon,
+            onPressed: onPressed,
+            visualDensity: const VisualDensity(vertical: VisualDensity.minimumDensity, horizontal: VisualDensity.minimumDensity),
+            padding: EdgeInsets.zero,
+          );
   }
 }

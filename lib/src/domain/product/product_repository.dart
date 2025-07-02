@@ -8,7 +8,7 @@ import 'package:injectable/injectable.dart';
 
 abstract interface class IProductRepository {
   Future<BaseResponse<List<ProductDto>>> findAll();
-  Future<BaseResponse<List<ProductDto>>> findAllByCategoryName(int id);
+  Future<BaseResponse<List<ProductDto>>> findAllByCategoryId(int id);
   Future<BaseResponse<ProductDto>> findById(int id);
   Future<BaseResponse<ProductDto>> save(InsertProductRequest request);
   Future<BaseResponse<ProductDto>> update(UpdateProductRequest request);
@@ -25,7 +25,7 @@ final class ProductRepository implements IProductRepository {
   Future<BaseResponse<List<ProductDto>>> findAll() => _productRemoteDS.findAll();
 
   @override
-  Future<BaseResponse<List<ProductDto>>> findAllByCategoryName(int id) => _productRemoteDS.findAllByCategoryName(id);
+  Future<BaseResponse<List<ProductDto>>> findAllByCategoryId(int id) => _productRemoteDS.findAllByCategoryId(id);
 
   @override
   Future<BaseResponse<ProductDto>> findById(int id) => _productRemoteDS.findById(id);

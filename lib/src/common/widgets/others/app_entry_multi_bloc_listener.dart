@@ -80,7 +80,7 @@ final class AppEntryMultiBlocListener extends StatelessWidget {
         if (state.status == AuthenticationStatus.unAuthenticated) {
           routerService.rootRouter.refresh();
         } else if (state.status == AuthenticationStatus.authenticated) {
-          routerService.rootRouter.goNamed(RoutePaths.home.name);
+          routerService.rootRouter.goNamed(RoutePaths.products.name);
         }
       },
     );

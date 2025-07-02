@@ -477,22 +477,6 @@ final class _AppBar extends StatelessWidget implements PreferredSizeWidget {
                 ],
               ),
             ),
-            Positioned(
-              right: 10,
-              top: 10,
-              child: SafeArea(
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: context.colorScheme.primary),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: CoreIconButton(
-                    icon: Icon(Icons.settings, color: context.colorScheme.primary),
-                    onPressed: () => context.pushNamed(RoutePaths.appSettings.name),
-                  ),
-                ),
-              ),
-            ),
           ],
         ),
       ),

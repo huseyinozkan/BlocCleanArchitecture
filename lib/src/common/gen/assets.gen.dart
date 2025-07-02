@@ -1023,8 +1023,14 @@ class $AssetsFlagsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/cart.png
+  AssetGenImage get cart => const AssetGenImage('assets/images/cart.png');
+
   /// File path: assets/images/data_not_found.png
   AssetGenImage get dataNotFound => const AssetGenImage('assets/images/data_not_found.png');
+
+  /// File path: assets/images/home.png
+  AssetGenImage get home => const AssetGenImage('assets/images/home.png');
 
   /// File path: assets/images/launcher_image.png
   AssetGenImage get launcherImage => const AssetGenImage('assets/images/launcher_image.png');
@@ -1041,8 +1047,11 @@ class $AssetsImagesGen {
   /// File path: assets/images/text_document.svg
   String get textDocument => 'assets/images/text_document.svg';
 
+  /// File path: assets/images/user.png
+  AssetGenImage get user => const AssetGenImage('assets/images/user.png');
+
   /// List of all assets
-  List<dynamic> get values => [dataNotFound, launcherImage, loginHeaderBg, signout, somethingWentWrong, textDocument];
+  List<dynamic> get values => [cart, dataNotFound, home, launcherImage, loginHeaderBg, signout, somethingWentWrong, textDocument, user];
 }
 
 class $AssetsLangGen {

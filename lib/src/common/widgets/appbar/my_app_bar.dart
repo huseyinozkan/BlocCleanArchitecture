@@ -42,6 +42,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         actions: actions,
         bottom: bottom,
         flexibleSpace: flexibleSpace,
+        centerTitle: true,
       ),
     );
   }

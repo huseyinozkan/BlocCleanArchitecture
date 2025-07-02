@@ -12,7 +12,7 @@ final class _AppBarBackButton extends StatelessWidget {
       onPressed: routeService.rootRouter.pop,
       child: Icon(
         Icons.arrow_back_ios,
-        color: context.colorScheme.primary,
+        color: context.colorScheme.secondary,
       ),
     );
   }

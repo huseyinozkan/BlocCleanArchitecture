@@ -113,4 +113,33 @@ final class _MyDialogs {
       },
     );
   }
+
+  Future<bool?> showLogoutDialog({required BuildContext context}) {
+    final id = UniqueKey().toString();
+
+    return _popupManager.showDefaultAdaptiveAlertDialog(
+      id: id,
+      context: context,
+      title: CoreText(LocalizationKey.logout.tr(context, listen: false)),
+      content: CoreText(LocalizationKey.logoutConfirmation.tr(context, listen: false)),
+      onOkButtonPressed: () => _popupManager.hidePopup(id: id, result: true),
+      isDestuctiveOkButtonIOS: true,
+      isDefaultOkButtonIOS: true,
+    );
+  }
+
+  Future<bool?> showDeletionDialog({required BuildContext context}) {
+    final id = UniqueKey().toString();
+
+    return _popupManager.showDefaultAdaptiveAlertDialog(
+      id: id,
+      context: context,
+      title: CoreText(LocalizationKey.deleteConfirmation.tr(context, listen: false)),
+      content: CoreText(LocalizationKey.deleteConfirmationMessage.tr(context, listen: false)),
+      okButtonLabel: LocalizationKey.delete.tr(context, listen: false),
+      onOkButtonPressed: () => _popupManager.hidePopup(id: id, result: true),
+      isDestuctiveOkButtonIOS: true,
+      isDefaultOkButtonIOS: true,
+    );
+  }
 }

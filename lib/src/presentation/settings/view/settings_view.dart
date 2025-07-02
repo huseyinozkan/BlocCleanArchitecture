@@ -5,19 +5,19 @@ import 'package:bloc_clean_architecture/src/common/theme/bloc/theme_bloc.dart';
 import 'package:bloc_clean_architecture/src/common/theme/color_scheme.dart';
 import 'package:bloc_clean_architecture/src/common/widgets/appbar/my_app_bar.dart';
 import 'package:bloc_clean_architecture/src/data/model/response/culture_dto.dart';
-import 'package:bloc_clean_architecture/src/presentation/app_settings/bloc/app_settings_bloc.dart';
+import 'package:bloc_clean_architecture/src/presentation/settings/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_core/flutter_core.dart';
 
 @immutable
-final class AppSettingsView extends StatelessWidget {
-  const AppSettingsView({super.key});
+final class SettingsView extends StatelessWidget {
+  const SettingsView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<AppSettingsBloc>()..add(const AppSettingsInitialEvent()),
+      create: (context) => getIt<SettingsBloc>()..add(const SettingsInitialEvent()),
       child: const Scaffold(
         appBar: _AppBar(),
         body: _Body(),
@@ -53,7 +53,6 @@ final class _Body extends StatelessWidget {
           _ThemeList(),
           _CultureList(),
           Spacer(),
-          _VersionInfo(),
         ],
       ),
     );
@@ -66,7 +65,7 @@ final class _ThemeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorSchemes = context.watch<AppSettingsBloc>().state.colorSchemes;
+    final colorSchemes = context.watch<SettingsBloc>().state.colorSchemes;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -117,7 +116,7 @@ final class _CultureList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cultures = context.watch<AppSettingsBloc>().state.cultures;
+    final cultures = context.watch<SettingsBloc>().state.cultures;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -154,22 +153,6 @@ final class _CultureListTile extends StatelessWidget {
       enabled: !isSelectedCulture,
       onTap: () => context.read<LocalizationBloc>().add(CultureChanged(culture)),
       trailing: isSelectedCulture ? const Icon(Icons.check) : null,
-    );
-  }
-}
-
-class _VersionInfo extends StatelessWidget {
-  const _VersionInfo();
-
-  @override
-  Widget build(BuildContext context) {
-    final state = context.watch<AppSettingsBloc>().state;
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: CoreText.bodyMedium(
-        '${state.version} (${state.buildNumber})',
-        textAlign: TextAlign.center,
-      ),
     );
   }
 }

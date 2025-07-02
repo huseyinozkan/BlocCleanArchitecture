@@ -9,7 +9,7 @@ import 'package:injectable/injectable.dart';
 
 abstract interface class IProductRemoteDS {
   Future<BaseResponse<List<ProductDto>>> findAll();
-  Future<BaseResponse<List<ProductDto>>> findAllByCategoryName(int id);
+  Future<BaseResponse<List<ProductDto>>> findAllByCategoryId(int id);
   Future<BaseResponse<ProductDto>> findById(int id);
   Future<BaseResponse<ProductDto>> save(InsertProductRequest request);
   Future<BaseResponse<ProductDto>> update(UpdateProductRequest request);
@@ -30,7 +30,7 @@ final class ProductRemoteDS implements IProductRemoteDS {
       );
 
   @override
-  Future<BaseResponse<List<ProductDto>>> findAllByCategoryName(int id) => _networkManager.request<List<ProductDto>, ProductDto>(
+  Future<BaseResponse<List<ProductDto>>> findAllByCategoryId(int id) => _networkManager.request<List<ProductDto>, ProductDto>(
         path: RequestPath.productByCategoryId,
         type: RequestType.get,
         responseEntityModel: const ProductDto(),

@@ -4,10 +4,12 @@ enum RoutePaths {
   login('/login'),
   forgotPassword('forgotPassword'),
   forgotPassswordSendOtpCode('forgotPassswordSendOtpCode'),
-  home('/home', isAuthRequired: true),
-  appSettings('appSettings'),
+  settings('settings', isAuthRequired: true),
   updatePassword('updatePassword', isAuthRequired: true),
   admin('admin', isAuthRequired: true),
+  products('/products', isAuthRequired: true),
+  account('/account', isAuthRequired: true),
+  basket('/basket', isAuthRequired: true),
   ;
 
   const RoutePaths(this.asRoutePath, {this.isAuthRequired = false});

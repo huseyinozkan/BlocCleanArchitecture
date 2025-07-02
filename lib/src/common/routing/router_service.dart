@@ -1,14 +1,16 @@
 import 'package:bloc_clean_architecture/src/common/blocs/auth/bloc/auth_bloc.dart';
 import 'package:bloc_clean_architecture/src/common/functions/functions.dart';
 import 'package:bloc_clean_architecture/src/common/routing/route_paths.dart';
-import 'package:bloc_clean_architecture/src/presentation/admin/view/admin_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/app_settings/view/app_settings_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/view/account_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/forgot_password/view/forgot_password_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/forgot_password_send_otp_code/view/forgot_password_send_otp_code_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/login/view/login_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/splash/view/splash_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/update_password/view/update_password_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/home/view/home_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/bottom_navigation_bar/view/bottom_navigation_bar_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/cart/view/cart_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/products/products/view/products_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/settings/view/settings_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -26,6 +28,10 @@ final class MyRouterService implements IMyRouterService {
 
   @override
   GoRouter get rootRouter => _rootRouter;
+
+  final _sectionProductsNavigatorKey = GlobalKey<NavigatorState>();
+  final _sectionAccountNavigatorKey = GlobalKey<NavigatorState>();
+  final _sectionBasketNavigatorKey = GlobalKey<NavigatorState>();
 
   late final _rootRouter = GoRouter(
     navigatorKey: rootNavigatorKey,
@@ -66,31 +72,62 @@ final class MyRouterService implements IMyRouterService {
         ],
       ),
 
-      /// Home route
-      GoRoute(
-        path: RoutePaths.home.asRoutePath,
-        name: RoutePaths.home.name,
-        builder: (context, state) => const HomeView(),
-        routes: [
-          // App Settings route
-          GoRoute(
-            path: RoutePaths.appSettings.asRoutePath,
-            name: RoutePaths.appSettings.name,
-            builder: (context, state) => const AppSettingsView(),
+      /// Bottom navigation bar route
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) => BottomNavigationBarView(navigationShell: navigationShell),
+        branches: [
+          /// Products
+          StatefulShellBranch(
+            navigatorKey: _sectionProductsNavigatorKey,
+            routes: [
+              /// Products route
+              GoRoute(
+                path: RoutePaths.products.asRoutePath,
+                name: RoutePaths.products.name,
+                builder: (context, state) => const ProductsView(),
+              ),
+            ],
           ),
 
-          // User Informations route
-          GoRoute(
-            path: RoutePaths.updatePassword.asRoutePath,
-            name: RoutePaths.updatePassword.name,
-            builder: (context, state) => const UpdatePasswordView(),
+          /// Account
+          StatefulShellBranch(
+            navigatorKey: _sectionAccountNavigatorKey,
+            routes: [
+              /// Account route
+              GoRoute(
+                path: RoutePaths.account.asRoutePath,
+                name: RoutePaths.account.name,
+                builder: (context, state) => const AccountView(),
+                routes: [
+                  /// App Settings route
+                  GoRoute(
+                    path: RoutePaths.settings.asRoutePath,
+                    name: RoutePaths.settings.name,
+                    builder: (context, state) => const SettingsView(),
+                  ),
+
+                  /// Update Password route
+                  GoRoute(
+                    path: RoutePaths.updatePassword.asRoutePath,
+                    name: RoutePaths.updatePassword.name,
+                    builder: (context, state) => const UpdatePasswordView(),
+                  ),
+                ],
+              ),
+            ],
           ),
 
-          // Admin route
-          GoRoute(
-            path: RoutePaths.admin.asRoutePath,
-            name: RoutePaths.admin.name,
-            builder: (context, state) => const AdminView(),
+          /// Basket
+          StatefulShellBranch(
+            navigatorKey: _sectionBasketNavigatorKey,
+            routes: [
+              /// Basket route
+              GoRoute(
+                path: RoutePaths.basket.asRoutePath,
+                name: RoutePaths.basket.name,
+                builder: (context, state) => const CartView(),
+              ),
+            ],
           ),
         ],
       ),
