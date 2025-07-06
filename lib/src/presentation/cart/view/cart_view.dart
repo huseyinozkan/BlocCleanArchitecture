@@ -247,7 +247,7 @@ final class _AmountToBePaidAndContinueButton extends StatelessWidget {
                     child: MyFilledButton(
                       child: CoreText.bodyMedium(LocalizationKey.continuee.tr(context), fontWeight: FontWeight.bold, textColor: context.colorScheme.onPrimary),
                       onPressed: () {
-                        // context.goNamed(RoutePaths.orderDetail.name);
+                        context.pushNamed(RoutePaths.order.name);
                       },
                     ),
                   ),

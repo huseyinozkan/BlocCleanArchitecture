@@ -19,6 +19,6 @@ final class BottomNavigationBarCubit extends Cubit<BottomNavigationBarState> {
   Future<void> initialized() async {
     final cartItems = await _cartItemRepository.findAll();
     final cartCount = cartItems.data?.length ?? 0;
-    emit(state.copyWith(cartCount: cartCount));
+    if (!isClosed) emit(state.copyWith(cartCount: cartCount));
   }
 }

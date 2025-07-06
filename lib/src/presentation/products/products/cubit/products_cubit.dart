@@ -53,7 +53,7 @@ final class ProductsCubit extends Cubit<ProductsState> {
 
   Future<void> cartItemChanged() async {
     final cartItemsResponse = await _cartItemRepository.findAll().intercept(showSuccessMessage: false);
-    emit(state.copyWith(cartItems: cartItemsResponse.data));
+    if (!isClosed) emit(state.copyWith(cartItems: cartItemsResponse.data));
   }
 
   Future<void> onRefresh(BuildContext context) async {

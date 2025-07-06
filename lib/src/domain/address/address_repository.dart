@@ -11,7 +11,7 @@ abstract interface class IAddressRepository {
   Future<BaseResponse<AddressDto>> findById(int id);
   Future<BaseResponse<AddressDto>> save(InsertAddressRequest request);
   Future<BaseResponse<AddressDto>> update(UpdateAddressRequest request);
-  Future<BaseResponse<EmptyObject>> deleteById(int id);
+  Future<BaseResponse<EmptyObject>> deleteById(int? id);
 }
 
 @LazySingleton(as: IAddressRepository)
@@ -33,5 +33,5 @@ final class AddressRepository implements IAddressRepository {
   Future<BaseResponse<AddressDto>> update(UpdateAddressRequest request) => _addressRemoteDS.update(request);
 
   @override
-  Future<BaseResponse<EmptyObject>> deleteById(int id) => _addressRemoteDS.deleteById(id);
+  Future<BaseResponse<EmptyObject>> deleteById(int? id) => _addressRemoteDS.deleteById(id);
 }

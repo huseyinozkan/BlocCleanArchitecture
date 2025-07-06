@@ -2,6 +2,8 @@ import 'package:bloc_clean_architecture/src/common/blocs/auth/bloc/auth_bloc.dar
 import 'package:bloc_clean_architecture/src/common/functions/functions.dart';
 import 'package:bloc_clean_architecture/src/common/routing/route_paths.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/view/account_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/address/address_detail/view/address_detail_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/address/addresses/view/address_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/forgot_password/view/forgot_password_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/forgot_password_send_otp_code/view/forgot_password_send_otp_code_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/login/view/login_view.dart';
@@ -9,6 +11,7 @@ import 'package:bloc_clean_architecture/src/presentation/auth/splash/view/splash
 import 'package:bloc_clean_architecture/src/presentation/auth/update_password/view/update_password_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/bottom_navigation_bar/view/bottom_navigation_bar_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/cart/view/cart_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/order/view/order_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/products/products/view/products_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/settings/view/settings_view.dart';
 import 'package:flutter/material.dart';
@@ -101,6 +104,7 @@ final class MyRouterService implements IMyRouterService {
                 routes: [
                   /// App Settings route
                   GoRoute(
+                    parentNavigatorKey: rootNavigatorKey,
                     path: RoutePaths.settings.asRoutePath,
                     name: RoutePaths.settings.name,
                     builder: (context, state) => const SettingsView(),
@@ -108,9 +112,27 @@ final class MyRouterService implements IMyRouterService {
 
                   /// Update Password route
                   GoRoute(
+                    parentNavigatorKey: rootNavigatorKey,
                     path: RoutePaths.updatePassword.asRoutePath,
                     name: RoutePaths.updatePassword.name,
                     builder: (context, state) => const UpdatePasswordView(),
+                  ),
+
+                  /// Addresses route
+                  GoRoute(
+                    parentNavigatorKey: rootNavigatorKey,
+                    path: RoutePaths.addresses.asRoutePath,
+                    name: RoutePaths.addresses.name,
+                    builder: (context, state) => const AddressView(),
+                    routes: [
+                      /// Address Detail route
+                      GoRoute(
+                        parentNavigatorKey: rootNavigatorKey,
+                        path: RoutePaths.addressDetail.asRoutePath,
+                        name: RoutePaths.addressDetail.name,
+                        builder: (context, state) => AddressDetailView(arguments: state.extra as AddressDetailArguments?),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -126,6 +148,15 @@ final class MyRouterService implements IMyRouterService {
                 path: RoutePaths.basket.asRoutePath,
                 name: RoutePaths.basket.name,
                 builder: (context, state) => const CartView(),
+                routes: [
+                  /// Order route
+                  GoRoute(
+                    parentNavigatorKey: rootNavigatorKey,
+                    path: RoutePaths.order.asRoutePath,
+                    name: RoutePaths.order.name,
+                    builder: (context, state) => const OrderView(),
+                  ),
+                ],
               ),
             ],
           ),

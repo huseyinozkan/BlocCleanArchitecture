@@ -6,7 +6,7 @@ import 'package:bloc_clean_architecture/src/common/gen/assets.gen.dart';
 import 'package:bloc_clean_architecture/src/common/popup_manager/popup_manager.dart';
 import 'package:bloc_clean_architecture/src/common/widgets/others/data_not_found.dart';
 import 'package:bloc_clean_architecture/src/common/widgets/textfields/search_textfield.dart';
-import 'package:bloc_clean_architecture/src/data/model/country/country.dart';
+import 'package:bloc_clean_architecture/src/data/model/country.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_core/flutter_core.dart';
