@@ -105,14 +105,14 @@ import 'package:bloc_clean_architecture/src/domain/splash/splash_repository.dart
     as _i183;
 import 'package:bloc_clean_architecture/src/domain/sqflite_manager/sqflite_manager_repository.dart'
     as _i316;
-import 'package:bloc_clean_architecture/src/presentation/account/bloc/account_bloc.dart'
-    as _i479;
-import 'package:bloc_clean_architecture/src/presentation/address/address_detail/cubit/address_detail_cubit.dart'
+import 'package:bloc_clean_architecture/src/presentation/account/account/bloc/account_bloc.dart'
+    as _i688;
+import 'package:bloc_clean_architecture/src/presentation/account/address/address_detail/cubit/address_detail_cubit.dart'
     as _i687;
-import 'package:bloc_clean_architecture/src/presentation/address/addresses/cubit/address_cubit.dart'
+import 'package:bloc_clean_architecture/src/presentation/account/address/addresses/cubit/address_cubit.dart'
     as _i404;
-import 'package:bloc_clean_architecture/src/presentation/admin/cubit/cubit/admin_cubit.dart'
-    as _i898;
+import 'package:bloc_clean_architecture/src/presentation/account/admin/admin_operations/cubit/admin_operations_cubit.dart'
+    as _i839;
 import 'package:bloc_clean_architecture/src/presentation/auth/forgot_password/cubit/forgot_password_cubit.dart'
     as _i746;
 import 'package:bloc_clean_architecture/src/presentation/auth/forgot_password_send_otp_code/cubit/forgot_password_send_otp_code_cubit.dart'
@@ -121,19 +121,19 @@ import 'package:bloc_clean_architecture/src/presentation/auth/login/cubit/login_
     as _i249;
 import 'package:bloc_clean_architecture/src/presentation/auth/splash/bloc/splash_bloc.dart'
     as _i68;
-import 'package:bloc_clean_architecture/src/presentation/auth/update_password/cubit/update_password_cubit.dart'
+import 'package:bloc_clean_architecture/src/presentation/account/update_password/cubit/update_password_cubit.dart'
     as _i1028;
 import 'package:bloc_clean_architecture/src/presentation/bottom_navigation_bar/cubit/bottom_navigation_bar_cubit.dart'
     as _i205;
-import 'package:bloc_clean_architecture/src/presentation/cart/cubit/cart_cubit.dart'
+import 'package:bloc_clean_architecture/src/presentation/cart/cart/cubit/cart_cubit.dart'
     as _i437;
-import 'package:bloc_clean_architecture/src/presentation/order/cubit/order_cubit.dart'
+import 'package:bloc_clean_architecture/src/presentation/cart/order/cubit/order_cubit.dart'
     as _i531;
-import 'package:bloc_clean_architecture/src/presentation/past_orders/cubit/past_orders_cubit.dart'
+import 'package:bloc_clean_architecture/src/presentation/account/past_orders/cubit/past_orders_cubit.dart'
     as _i807;
-import 'package:bloc_clean_architecture/src/presentation/products/products/cubit/products_cubit.dart'
+import 'package:bloc_clean_architecture/src/presentation/products/cubit/products_cubit.dart'
     as _i492;
-import 'package:bloc_clean_architecture/src/presentation/settings/bloc/settings_bloc.dart'
+import 'package:bloc_clean_architecture/src/presentation/account/settings/bloc/settings_bloc.dart'
     as _i486;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
@@ -150,9 +150,9 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     gh.factory<_i564.ThemeBloc>(() => _i564.ThemeBloc());
-    gh.factory<_i898.AdminCubit>(() => _i898.AdminCubit());
     gh.factory<_i352.SingleSelectBottomSheetCubit>(
         () => _i352.SingleSelectBottomSheetCubit());
+    gh.factory<_i839.AdminOperationsCubit>(() => _i839.AdminOperationsCubit());
     gh.lazySingleton<_i308.SqfliteManager>(() => _i308.SqfliteManager());
     gh.lazySingleton<_i890.NetworkManager>(() => _i890.NetworkManager());
     gh.lazySingleton<_i182.EncrytionManager>(() => _i182.EncrytionManager());
@@ -276,8 +276,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i224.AuthBloc(gh<_i291.IAuthRepository>()));
     gh.factory<_i1028.UpdatePasswordCubit>(
         () => _i1028.UpdatePasswordCubit(gh<_i291.IAuthRepository>()));
-    gh.factory<_i479.AccountBloc>(
-        () => _i479.AccountBloc(gh<_i291.IAuthRepository>()));
+    gh.factory<_i688.AccountBloc>(
+        () => _i688.AccountBloc(gh<_i291.IAuthRepository>()));
     gh.factory<_i249.LoginCubit>(() => _i249.LoginCubit(
           gh<_i291.IAuthRepository>(),
           gh<_i833.IMyPopupManager>(),

@@ -6,7 +6,7 @@ enum RoutePaths {
   forgotPassswordSendOtpCode('forgotPassswordSendOtpCode'),
   settings('settings', isAuthRequired: true),
   updatePassword('updatePassword', isAuthRequired: true),
-  admin('admin', isAuthRequired: true),
+  adminOperations('adminOperations', isAuthRequired: true),
   products('/products', isAuthRequired: true),
   account('/account', isAuthRequired: true),
   addresses('addresses', isAuthRequired: true),

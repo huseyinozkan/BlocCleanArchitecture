@@ -12,7 +12,7 @@ import 'package:bloc_clean_architecture/src/common/widgets/others/dotted_line.da
 import 'package:bloc_clean_architecture/src/data/model/enums/order_status.dart';
 import 'package:bloc_clean_architecture/src/data/model/response/cart_item_dto.dart';
 import 'package:bloc_clean_architecture/src/data/model/response/order_dto.dart';
-import 'package:bloc_clean_architecture/src/presentation/past_orders/widget/order_status_widget.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/past_orders/widget/order_status_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_core/flutter_core.dart';

@@ -70,7 +70,7 @@ enum LocalizationKey {
   securityCodeMustBeAtLeastSixCharacters(value: 'securityCodeMustBeAtLeastSixCharacters', defaultValue: 'Doğrulama kodu en az 6 karakter olmalıdır.'),
   securityCode(value: 'securityCode', defaultValue: 'Doğrulama Kodu'),
   validationMustBeLessThanOneHundredMillion(value: 'validationMustBeLessThanOneHundredMillion', defaultValue: "Bu alan 100.000.000'den küçük olmalıdır."),
-  admin(value: 'admin', defaultValue: 'Admin'),
+  adminOperations(value: 'adminOperations', defaultValue: 'Admin İşlemleri'),
   ok(value: 'ok', defaultValue: 'Tamam'),
   cancel(value: 'cancel', defaultValue: 'İptal'),
   signOut(value: 'signOut', defaultValue: 'Çıkış Yap'),
@@ -131,6 +131,7 @@ enum LocalizationKey {
   cancelButtonConfirmation(value: 'cancelButtonConfirmation', defaultValue: 'Siparişi iptal etmek istediğinize emin misiniz?'),
   orderNote(value: 'orderNote', defaultValue: 'Sipariş Notu'),
   orderNotFoundToDisplay(value: 'orderNotFoundToDisplay', defaultValue: 'Sipariş bulunamadı.'),
+  categories(value: 'categories', defaultValue: 'Kategoriler'),
   ;
 
   const LocalizationKey({required this.value, required this.defaultValue});

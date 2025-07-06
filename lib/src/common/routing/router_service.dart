@@ -1,20 +1,21 @@
 import 'package:bloc_clean_architecture/src/common/blocs/auth/bloc/auth_bloc.dart';
 import 'package:bloc_clean_architecture/src/common/functions/functions.dart';
 import 'package:bloc_clean_architecture/src/common/routing/route_paths.dart';
-import 'package:bloc_clean_architecture/src/presentation/account/view/account_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/address/address_detail/view/address_detail_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/address/addresses/view/address_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/account/view/account_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/address/address_detail/view/address_detail_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/address/addresses/view/address_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/admin/admin_operations/view/admin_operations_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/past_orders/view/past_orders_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/settings/view/settings_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/update_password/view/update_password_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/forgot_password/view/forgot_password_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/forgot_password_send_otp_code/view/forgot_password_send_otp_code_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/login/view/login_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/splash/view/splash_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/auth/update_password/view/update_password_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/bottom_navigation_bar/view/bottom_navigation_bar_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/cart/view/cart_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/order/view/order_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/past_orders/view/past_orders_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/products/products/view/products_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/settings/view/settings_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/cart/cart/view/cart_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/cart/order/view/order_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/products/view/products_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -103,7 +104,15 @@ final class MyRouterService implements IMyRouterService {
                 name: RoutePaths.account.name,
                 builder: (context, state) => const AccountView(),
                 routes: [
-                  /// App Settings route
+                  /// Admin Operations route
+                  GoRoute(
+                    parentNavigatorKey: rootNavigatorKey,
+                    path: RoutePaths.adminOperations.asRoutePath,
+                    name: RoutePaths.adminOperations.name,
+                    builder: (context, state) => const AdminOperationsView(),
+                  ),
+
+                  /// Settings route
                   GoRoute(
                     parentNavigatorKey: rootNavigatorKey,
                     path: RoutePaths.settings.asRoutePath,
