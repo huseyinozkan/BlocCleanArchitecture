@@ -12,6 +12,7 @@ import 'package:bloc_clean_architecture/src/presentation/auth/update_password/vi
 import 'package:bloc_clean_architecture/src/presentation/bottom_navigation_bar/view/bottom_navigation_bar_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/cart/view/cart_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/order/view/order_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/past_orders/view/past_orders_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/products/products/view/products_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/settings/view/settings_view.dart';
 import 'package:flutter/material.dart';
@@ -133,6 +134,14 @@ final class MyRouterService implements IMyRouterService {
                         builder: (context, state) => AddressDetailView(arguments: state.extra as AddressDetailArguments?),
                       ),
                     ],
+                  ),
+
+                  /// Past Orders route
+                  GoRoute(
+                    parentNavigatorKey: rootNavigatorKey,
+                    path: RoutePaths.pastOrders.asRoutePath,
+                    name: RoutePaths.pastOrders.name,
+                    builder: (context, state) => const PastOrdersView(),
                   ),
                 ],
               ),

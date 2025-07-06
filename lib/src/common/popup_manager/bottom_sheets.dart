@@ -52,4 +52,19 @@ final class _BottomSheets {
       builder: (context) => SingleSelectBottomSheet(title: title, list: list, selectedItem: selectedItem, id: id),
     );
   }
+
+  Future<bool?> showOrderDetailBottomSheet({required BuildContext context, required OrderDto order}) {
+    final id = UniqueKey().toString();
+
+    return _popupManager.showModalBottomSheet<bool>(
+      id: id,
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => OrderDetailBottomSheet(
+        arguments: OrderDetailBottomSheetArguments(order: order, bottomSheetId: id),
+      ),
+    );
+  }
 }

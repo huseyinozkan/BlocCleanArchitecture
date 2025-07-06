@@ -56,7 +56,7 @@ final class _Body extends StatelessWidget {
             const _NameAndEmailArea(),
             verticalBox20,
             _MenuRow(onPressed: () {}, title: LocalizationKey.admin.tr(context)),
-            _MenuRow(onPressed: () {}, title: LocalizationKey.orders.tr(context)),
+            _MenuRow(onPressed: () => context.pushNamed(RoutePaths.pastOrders.name), title: LocalizationKey.orders.tr(context)),
             _MenuRow(onPressed: () => context.pushNamed(RoutePaths.addresses.name), title: LocalizationKey.addresses.tr(context)),
             _MenuRow(onPressed: () => context.pushNamed(RoutePaths.updatePassword.name), title: LocalizationKey.updatePassword.tr(context)),
             _MenuRow(onPressed: () => context.pushNamed(RoutePaths.settings.name), title: LocalizationKey.settings.tr(context)),

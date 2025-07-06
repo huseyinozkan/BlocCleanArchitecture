@@ -10,7 +10,7 @@ abstract interface class IOrderRepository {
   Future<BaseResponse<List<OrderDto>>> findAll();
   Future<BaseResponse<List<OrderDto>>> findAllAdmin();
   Future<BaseResponse<List<OrderDto>>> findAllAdminByOrderStatus(OrderStatus orderStatus);
-  Future<BaseResponse<OrderDto>> findById(int id);
+  Future<BaseResponse<OrderDto>> findById(int? id);
   Future<BaseResponse<OrderDto>> save(InsertOrderRequest request);
   Future<BaseResponse<OrderDto>> updateOrderStatus(UpdateOrderStatusRequest request);
 }
@@ -31,7 +31,7 @@ final class OrderRepository implements IOrderRepository {
   Future<BaseResponse<List<OrderDto>>> findAllAdminByOrderStatus(OrderStatus orderStatus) => _orderRemoteDS.findAllAdminByOrderStatus(orderStatus);
 
   @override
-  Future<BaseResponse<OrderDto>> findById(int id) => _orderRemoteDS.findById(id);
+  Future<BaseResponse<OrderDto>> findById(int? id) => _orderRemoteDS.findById(id);
 
   @override
   Future<BaseResponse<OrderDto>> save(InsertOrderRequest request) => _orderRemoteDS.save(request);

@@ -119,6 +119,18 @@ enum LocalizationKey {
   districtName(value: 'districtName', defaultValue: 'İlçe Adı'),
   addressDescription(value: 'addressDescription', defaultValue: 'Adres Açıklaması'),
   addNewAddress(value: 'addNewAddress', defaultValue: 'Yeni Adres Ekle'),
+  orderDetails(value: 'orderDetails', defaultValue: 'Sipariş Detayları'),
+  orderNumber(value: 'orderNumber', defaultValue: 'Sipariş Numarası'),
+  delivered(value: 'delivered', defaultValue: 'Teslim Edildi'),
+  pending(value: 'pending', defaultValue: 'Beklemede'),
+  preparing(value: 'preparing', defaultValue: 'Hazırlanıyor'),
+  cancelled(value: 'cancelled', defaultValue: 'İptal Edildi'),
+  orderDate(value: 'orderDate', defaultValue: 'Sipariş Tarihi'),
+  address(value: 'address', defaultValue: 'Adres'),
+  totalAmount(value: 'totalAmount', defaultValue: 'Toplam Tutar'),
+  cancelButtonConfirmation(value: 'cancelButtonConfirmation', defaultValue: 'Siparişi iptal etmek istediğinize emin misiniz?'),
+  orderNote(value: 'orderNote', defaultValue: 'Sipariş Notu'),
+  orderNotFoundToDisplay(value: 'orderNotFoundToDisplay', defaultValue: 'Sipariş bulunamadı.'),
   ;
 
   const LocalizationKey({required this.value, required this.defaultValue});

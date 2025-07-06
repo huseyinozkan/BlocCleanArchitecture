@@ -37,6 +37,8 @@ import 'package:bloc_clean_architecture/src/common/theme/bloc/theme_bloc.dart'
     as _i564;
 import 'package:bloc_clean_architecture/src/common/utils/contact_picker_helper/contact_picker_helper.dart'
     as _i327;
+import 'package:bloc_clean_architecture/src/common/widgets/bottom_sheets/order_detail_bottom_sheet/cubit/order_detail_bottom_sheet_cubit.dart'
+    as _i965;
 import 'package:bloc_clean_architecture/src/common/widgets/bottom_sheets/single_select_bottom_sheet/cubit/single_select_bottom_sheet_cubit.dart'
     as _i352;
 import 'package:bloc_clean_architecture/src/data/data_source/local/auth/auth_local_ds.dart'
@@ -127,6 +129,8 @@ import 'package:bloc_clean_architecture/src/presentation/cart/cubit/cart_cubit.d
     as _i437;
 import 'package:bloc_clean_architecture/src/presentation/order/cubit/order_cubit.dart'
     as _i531;
+import 'package:bloc_clean_architecture/src/presentation/past_orders/cubit/past_orders_cubit.dart'
+    as _i807;
 import 'package:bloc_clean_architecture/src/presentation/products/products/cubit/products_cubit.dart'
     as _i492;
 import 'package:bloc_clean_architecture/src/presentation/settings/bloc/settings_bloc.dart'
@@ -288,6 +292,15 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i57.IProductRepository>(),
           gh<_i66.ICartItemRepository>(),
         ));
+    gh.factory<_i807.PastOrdersCubit>(() => _i807.PastOrdersCubit(
+          gh<_i397.IOrderRepository>(),
+          gh<_i833.IMyPopupManager>(),
+        ));
+    gh.factory<_i965.OrderDetailBottomSheetCubit>(
+        () => _i965.OrderDetailBottomSheetCubit(
+              gh<_i397.IOrderRepository>(),
+              gh<_i833.IMyPopupManager>(),
+            ));
     return this;
   }
 }
