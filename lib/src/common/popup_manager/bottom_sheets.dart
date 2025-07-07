@@ -67,4 +67,19 @@ final class _BottomSheets {
       ),
     );
   }
+
+  Future<bool?> showAdminOrderDetailBottomSheet({required BuildContext context, required OrderDto order}) {
+    final id = UniqueKey().toString();
+
+    return _popupManager.showModalBottomSheet<bool>(
+      id: id,
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => AdminOrderDetailBottomSheet(
+        arguments: AdminOrderDetailBottomSheetArguments(order: order, bottomSheetId: id),
+      ),
+    );
+  }
 }

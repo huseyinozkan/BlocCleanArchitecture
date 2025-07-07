@@ -1,11 +1,13 @@
 import 'package:bloc_clean_architecture/src/common/configuration/configuration.dart';
 import 'package:bloc_clean_architecture/src/common/constants/app_contants.dart';
 import 'package:bloc_clean_architecture/src/common/localization/localization_key.dart';
+import 'package:bloc_clean_architecture/src/common/routing/route_paths.dart';
 import 'package:bloc_clean_architecture/src/common/widgets/appbar/my_app_bar.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/admin/admin_operations/cubit/admin_operations_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_core/flutter_core.dart';
+import 'package:go_router/go_router.dart';
 
 @immutable
 final class AdminOperationsView extends StatelessWidget {
@@ -49,7 +51,7 @@ final class _Body extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            _MenuRow(onPressed: () {}, title: LocalizationKey.orders.tr(context)),
+            _MenuRow(onPressed: () => context.pushNamed(RoutePaths.adminOrders.name), title: LocalizationKey.orders.tr(context)),
             _MenuRow(onPressed: () {}, title: LocalizationKey.categories.tr(context)),
             _MenuRow(onPressed: () {}, title: LocalizationKey.products.tr(context)),
             verticalBox48,

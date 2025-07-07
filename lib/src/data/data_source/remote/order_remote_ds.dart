@@ -11,7 +11,7 @@ import 'package:injectable/injectable.dart';
 abstract interface class IOrderRemoteDS {
   Future<BaseResponse<List<OrderDto>>> findAll();
   Future<BaseResponse<List<OrderDto>>> findAllAdmin();
-  Future<BaseResponse<List<OrderDto>>> findAllAdminByOrderStatus(OrderStatus orderStatus);
+  Future<BaseResponse<List<OrderDto>>> findAllAdminByOrderStatus(OrderStatus? orderStatus);
   Future<BaseResponse<OrderDto>> findById(int? id);
   Future<BaseResponse<OrderDto>> save(InsertOrderRequest request);
   Future<BaseResponse<OrderDto>> updateOrderStatus(UpdateOrderStatusRequest request);
@@ -38,11 +38,11 @@ final class OrderRemoteDS implements IOrderRemoteDS {
       );
 
   @override
-  Future<BaseResponse<List<OrderDto>>> findAllAdminByOrderStatus(OrderStatus orderStatus) => _networkManager.request<List<OrderDto>, OrderDto>(
+  Future<BaseResponse<List<OrderDto>>> findAllAdminByOrderStatus(OrderStatus? orderStatus) => _networkManager.request<List<OrderDto>, OrderDto>(
         path: RequestPath.orderAdminByOrderStatus,
         type: RequestType.get,
         responseEntityModel: const OrderDto(),
-        pathSuffix: '?orderStatus=${orderStatus.value}',
+        pathSuffix: '?orderStatus=${orderStatus?.value}',
       );
 
   @override

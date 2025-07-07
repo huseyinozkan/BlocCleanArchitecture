@@ -48,7 +48,7 @@ final class _Body extends StatelessWidget {
           child: navigationShell,
           onBackButtonPressed: () {
             final fullPath = GoRouterState.of(context).fullPath;
-            if (fullPath == RoutePaths.products.asRoutePath || fullPath == RoutePaths.account.asRoutePath || fullPath == RoutePaths.basket.asRoutePath) {
+            if (fullPath == RoutePaths.products.asRoutePath || fullPath == RoutePaths.account.asRoutePath || fullPath == RoutePaths.cart.asRoutePath) {
               if (navigationShell.currentIndex == 0) return SynchronousFuture<bool>(false);
               navigationShell.goBranch(0);
               return SynchronousFuture<bool>(true);

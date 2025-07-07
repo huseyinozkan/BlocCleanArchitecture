@@ -132,6 +132,11 @@ enum LocalizationKey {
   orderNote(value: 'orderNote', defaultValue: 'Sipariş Notu'),
   orderNotFoundToDisplay(value: 'orderNotFoundToDisplay', defaultValue: 'Sipariş bulunamadı.'),
   categories(value: 'categories', defaultValue: 'Kategoriler'),
+  orderStatusPending(value: 'orderStatusPending', defaultValue: 'Beklemede'),
+  orderStatusPreparing(value: 'orderStatusPreparing', defaultValue: 'Hazırlanıyor'),
+  orderStatusCancelled(value: 'orderStatusCancelled', defaultValue: 'İptal Edildi'),
+  orderStatusDelivered(value: 'orderStatusDelivered', defaultValue: 'Teslim Edildi'),
+  orderStatus(value: 'orderStatus', defaultValue: 'Sipariş Durumu'),
   ;
 
   const LocalizationKey({required this.value, required this.defaultValue});

@@ -5,6 +5,8 @@ import 'package:bloc_clean_architecture/src/presentation/account/account/view/ac
 import 'package:bloc_clean_architecture/src/presentation/account/address/address_detail/view/address_detail_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/address/addresses/view/address_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/admin/admin_operations/view/admin_operations_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/admin/admin_orders/view/admin_orders_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/past_orders/cubit/view/bottom_navigation_bar_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/past_orders/view/past_orders_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/settings/view/settings_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/update_password/view/update_password_view.dart';
@@ -12,7 +14,6 @@ import 'package:bloc_clean_architecture/src/presentation/auth/forgot_password/vi
 import 'package:bloc_clean_architecture/src/presentation/auth/forgot_password_send_otp_code/view/forgot_password_send_otp_code_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/login/view/login_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/auth/splash/view/splash_view.dart';
-import 'package:bloc_clean_architecture/src/presentation/bottom_navigation_bar/view/bottom_navigation_bar_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/cart/cart/view/cart_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/cart/order/view/order_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/products/view/products_view.dart';
@@ -36,7 +37,7 @@ final class MyRouterService implements IMyRouterService {
 
   final _sectionProductsNavigatorKey = GlobalKey<NavigatorState>();
   final _sectionAccountNavigatorKey = GlobalKey<NavigatorState>();
-  final _sectionBasketNavigatorKey = GlobalKey<NavigatorState>();
+  final _sectionCartNavigatorKey = GlobalKey<NavigatorState>();
 
   late final _rootRouter = GoRouter(
     navigatorKey: rootNavigatorKey,
@@ -110,6 +111,15 @@ final class MyRouterService implements IMyRouterService {
                     path: RoutePaths.adminOperations.asRoutePath,
                     name: RoutePaths.adminOperations.name,
                     builder: (context, state) => const AdminOperationsView(),
+                    routes: [
+                      /// Admin Orders route
+                      GoRoute(
+                        parentNavigatorKey: rootNavigatorKey,
+                        path: RoutePaths.adminOrders.asRoutePath,
+                        name: RoutePaths.adminOrders.name,
+                        builder: (context, state) => const AdminOrdersView(),
+                      ),
+                    ],
                   ),
 
                   /// Settings route
@@ -157,14 +167,14 @@ final class MyRouterService implements IMyRouterService {
             ],
           ),
 
-          /// Basket
+          /// Cart
           StatefulShellBranch(
-            navigatorKey: _sectionBasketNavigatorKey,
+            navigatorKey: _sectionCartNavigatorKey,
             routes: [
-              /// Basket route
+              /// Cart route
               GoRoute(
-                path: RoutePaths.basket.asRoutePath,
-                name: RoutePaths.basket.name,
+                path: RoutePaths.cart.asRoutePath,
+                name: RoutePaths.cart.name,
                 builder: (context, state) => const CartView(),
                 routes: [
                   /// Order route

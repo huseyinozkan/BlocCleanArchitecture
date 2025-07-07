@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc_clean_architecture/src/common/configuration/configuration.dart';
 import 'package:bloc_clean_architecture/src/common/constants/app_contants.dart';
 import 'package:bloc_clean_architecture/src/common/localization/localization_key.dart';
@@ -8,21 +6,22 @@ import 'package:bloc_clean_architecture/src/common/widgets/appbar/my_app_bar.dar
 import 'package:bloc_clean_architecture/src/common/widgets/others/adaptive_indicator.dart';
 import 'package:bloc_clean_architecture/src/common/widgets/others/data_not_found_widget.dart';
 import 'package:bloc_clean_architecture/src/data/model/enums/order_status.dart';
+import 'package:bloc_clean_architecture/src/data/model/key_value_model.dart';
 import 'package:bloc_clean_architecture/src/data/model/response/order_dto.dart';
-import 'package:bloc_clean_architecture/src/presentation/account/past_orders/cubit/past_orders_cubit.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/admin/admin_orders/cubit/admin_orders_cubit.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/past_orders/widget/order_status_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_core/flutter_core.dart';
 
 @immutable
-final class PastOrdersView extends StatelessWidget {
-  const PastOrdersView({super.key});
+final class AdminOrdersView extends StatelessWidget {
+  const AdminOrdersView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<PastOrdersCubit>()..initialized(),
+      create: (context) => getIt<AdminOrdersCubit>()..initialized(context),
       child: const Scaffold(
         appBar: _AppBar(),
         body: _Body(),
@@ -50,13 +49,8 @@ final class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final status = context.select((PastOrdersCubit cubit) => cubit.state.status);
-    final orders = context.select((PastOrdersCubit cubit) => cubit.state.orders);
-    return status == PastOrdersStatus.loading
-        ? const Center(child: AdaptiveIndicator())
-        : orders.isEmpty
-            ? DataNotFoundWidget(description: LocalizationKey.orderNotFoundToDisplay.tr(context))
-            : const _BuildContent();
+    final status = context.select((AdminOrdersCubit cubit) => cubit.state.status);
+    return status == AdminOrdersStatus.loading ? const Center(child: AdaptiveIndicator()) : const _BuildContent();
   }
 }
 
@@ -66,20 +60,67 @@ final class _BuildContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final orders = context.select((PastOrdersCubit cubit) => cubit.state.orders);
+    final orders = context.select((AdminOrdersCubit cubit) => cubit.state.orders);
 
     return Column(
+      spacing: 16,
       children: [
-        Expanded(
-          child: CoreListView.separated(
-            onRefresh: () => context.read<PastOrdersCubit>().refresh(),
-            physics: const AlwaysScrollableScrollPhysics(),
-            itemCount: orders.length,
-            separatorBuilder: (context, index) => verticalBox16,
-            itemBuilder: (context, index) => _ListTileItem(order: orders[index]),
+        const _SelectOrderStatusTextField(),
+        if (orders.isEmpty)
+          Expanded(child: DataNotFoundWidget(description: LocalizationKey.orderNotFoundToDisplay.tr(context)))
+        else
+          Expanded(
+            child: CoreListView.separated(
+              padding: AppConstants.paddingConstants.pagePadding.add(const EdgeInsets.only(bottom: 54)),
+              onRefresh: () => context.read<AdminOrdersCubit>().refresh(),
+              physics: const AlwaysScrollableScrollPhysics(),
+              itemCount: orders.length,
+              separatorBuilder: (context, index) => verticalBox16,
+              itemBuilder: (context, index) => _ListTileItem(order: orders[index]),
+            ),
           ),
-        ),
       ],
+    );
+  }
+}
+
+@immutable
+final class _SelectOrderStatusTextField extends StatelessWidget {
+  const _SelectOrderStatusTextField();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: AppConstants.paddingConstants.pagePaddingHorizontal,
+      child: Column(
+        spacing: 8,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CoreText.titleMedium(LocalizationKey.orderStatus.tr(context), fontWeight: FontWeight.bold),
+          TextFormField(
+            controller: context.read<AdminOrdersCubit>().orderStatusController,
+            decoration: InputDecoration(
+              hintText: LocalizationKey.orderStatus.tr(context),
+              suffixIcon: const Icon(Icons.arrow_drop_down),
+            ),
+            readOnly: true,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            onTap: () async {
+              final popupManager = getIt<IMyPopupManager>();
+              const orderStatuses = OrderStatus.values;
+              final selectedOrderStatus = context.read<AdminOrdersCubit>().state.selectedOrderStatus;
+              final newSelectedOrderStatus = await popupManager.bottomSheets.showSingleSelectBottomSheet(
+                context: context,
+                title: LocalizationKey.orderStatus.tr(context, listen: false),
+                list: orderStatuses.map((e) => KeyValueModel(key: e.name, value: e.localizationKey.tr(context, listen: false))).toList(),
+                selectedItem: KeyValueModel(key: selectedOrderStatus?.name, value: selectedOrderStatus?.localizationKey.tr(context, listen: false)),
+              );
+
+              if (newSelectedOrderStatus.isNotNull && context.mounted) await context.read<AdminOrdersCubit>().onChangeOrderStatus(context, orderStatus: OrderStatus.values.firstWhere((e) => e.name == newSelectedOrderStatus?.key));
+            },
+          ),
+        ],
+      ),
     );
   }
 }
@@ -95,9 +136,8 @@ final class _ListTileItem extends StatelessWidget {
     const borderRadius = 12.0;
 
     return GestureDetector(
-      onTap: () => context.read<PastOrdersCubit>().onClickedOrderDetail(context, order: order),
+      onTap: () => context.read<AdminOrdersCubit>().onClickedOrderDetail(context, order: order),
       child: Container(
-        margin: AppConstants.paddingConstants.pagePaddingHorizontal,
         decoration: BoxDecoration(
           color: context.colorScheme.surface,
           borderRadius: BorderRadius.circular(borderRadius),
@@ -146,7 +186,6 @@ final class _ListTileItem extends StatelessWidget {
                 children: [
                   OrderStatusWidget(orderStatus: order.status),
                   const Spacer(),
-                  _BuildCancelButton(order: order),
                 ],
               ),
             ],
@@ -228,54 +267,6 @@ final class _ForwardIcon extends StatelessWidget {
           color: context.colorScheme.primary,
         ),
       ),
-    );
-  }
-}
-
-@immutable
-final class _BuildCancelButton extends StatelessWidget {
-  const _BuildCancelButton({required this.order});
-
-  final OrderDto order;
-
-  @override
-  Widget build(BuildContext context) {
-    return switch (order.status) {
-      OrderStatus.pending => _CancelButton(order: order),
-      OrderStatus.preparing => _CancelButton(order: order),
-      _ => emptyBox,
-    };
-  }
-}
-
-@immutable
-final class _CancelButton extends StatelessWidget {
-  const _CancelButton({required this.order});
-  final OrderDto order;
-
-  @override
-  Widget build(BuildContext context) {
-    return CoreFilledButton(
-      borderRadius: BorderRadius.circular(24),
-      backgroundColor: context.colorScheme.secondary.withValues(alpha: 0.7),
-      minSize: 30,
-      child: Row(
-        spacing: 4,
-        children: [
-          Icon(Icons.close, color: context.colorScheme.onSecondary, size: 16),
-          CoreText.labelMedium(LocalizationKey.cancel.tr(context), textColor: context.colorScheme.onSecondary, fontWeight: FontWeight.bold),
-        ],
-      ),
-      onPressed: () async {
-        final popupManager = getIt<IMyPopupManager>();
-        await popupManager.dialogs.showYesNoDialog(
-          context,
-          content: CoreText(LocalizationKey.cancelButtonConfirmation.tr(context, listen: false)),
-          yesButtonPressed: () {
-            if (context.mounted) unawaited(context.read<PastOrdersCubit>().onClickedCancelButton(order: order));
-          },
-        );
-      },
     );
   }
 }
