@@ -6,6 +6,8 @@ import 'package:bloc_clean_architecture/src/presentation/account/address/address
 import 'package:bloc_clean_architecture/src/presentation/account/address/addresses/view/address_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/admin/admin_operations/view/admin_operations_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/admin/admin_orders/view/admin_orders_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/admin/categories/categories/view/categories_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/admin/categories/category_detail/view/category_detail_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/past_orders/cubit/view/bottom_navigation_bar_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/past_orders/view/past_orders_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/settings/view/settings_view.dart';
@@ -118,6 +120,23 @@ final class MyRouterService implements IMyRouterService {
                         path: RoutePaths.adminOrders.asRoutePath,
                         name: RoutePaths.adminOrders.name,
                         builder: (context, state) => const AdminOrdersView(),
+                      ),
+
+                      /// Categories route
+                      GoRoute(
+                        parentNavigatorKey: rootNavigatorKey,
+                        path: RoutePaths.categories.asRoutePath,
+                        name: RoutePaths.categories.name,
+                        builder: (context, state) => const CategoriesView(),
+                        routes: [
+                          /// Category Detail route
+                          GoRoute(
+                            parentNavigatorKey: rootNavigatorKey,
+                            path: RoutePaths.categoryDetail.asRoutePath,
+                            name: RoutePaths.categoryDetail.name,
+                            builder: (context, state) => CategoryDetailView(arguments: state.extra as CategoryDetailArguments?),
+                          ),
+                        ],
                       ),
                     ],
                   ),

@@ -137,6 +137,11 @@ enum LocalizationKey {
   orderStatusCancelled(value: 'orderStatusCancelled', defaultValue: 'İptal Edildi'),
   orderStatusDelivered(value: 'orderStatusDelivered', defaultValue: 'Teslim Edildi'),
   orderStatus(value: 'orderStatus', defaultValue: 'Sipariş Durumu'),
+  noCategoryFound(value: 'noCategoryFound', defaultValue: 'Kategori Bulunamadı'),
+  addCategory(value: 'addCategory', defaultValue: 'Kategori Ekle'),
+  editCategory(value: 'editCategory', defaultValue: 'Kategori Düzenle'),
+  categoryName(value: 'categoryName', defaultValue: 'Kategori Adı'),
+  newCategory(value: 'newCategory', defaultValue: 'Yeni Kategori'),
   ;
 
   const LocalizationKey({required this.value, required this.defaultValue});

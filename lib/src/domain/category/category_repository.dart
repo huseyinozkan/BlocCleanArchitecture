@@ -11,7 +11,7 @@ abstract interface class ICategoryRepository {
   Future<BaseResponse<CategoryDto>> findById(int id);
   Future<BaseResponse<CategoryDto>> save(InsertCategoryRequest request);
   Future<BaseResponse<CategoryDto>> update(UpdateCategoryRequest request);
-  Future<BaseResponse<EmptyObject>> deleteById(int id);
+  Future<BaseResponse<EmptyObject>> deleteById(int? id);
 }
 
 @LazySingleton(as: ICategoryRepository)
@@ -33,5 +33,5 @@ final class CategoryRepository implements ICategoryRepository {
   Future<BaseResponse<CategoryDto>> update(UpdateCategoryRequest request) => _categoryRemoteDS.update(request);
 
   @override
-  Future<BaseResponse<EmptyObject>> deleteById(int id) => _categoryRemoteDS.deleteById(id);
+  Future<BaseResponse<EmptyObject>> deleteById(int? id) => _categoryRemoteDS.deleteById(id);
 }

@@ -12,7 +12,7 @@ abstract interface class ICategoryRemoteDS {
   Future<BaseResponse<CategoryDto>> findById(int id);
   Future<BaseResponse<CategoryDto>> save(InsertCategoryRequest request);
   Future<BaseResponse<CategoryDto>> update(UpdateCategoryRequest request);
-  Future<BaseResponse<EmptyObject>> deleteById(int id);
+  Future<BaseResponse<EmptyObject>> deleteById(int? id);
 }
 
 @LazySingleton(as: ICategoryRemoteDS)
@@ -53,7 +53,7 @@ final class CategoryRemoteDS implements ICategoryRemoteDS {
       );
 
   @override
-  Future<BaseResponse<EmptyObject>> deleteById(int id) => _networkManager.request<EmptyObject, EmptyObject>(
+  Future<BaseResponse<EmptyObject>> deleteById(int? id) => _networkManager.request<EmptyObject, EmptyObject>(
         path: RequestPath.category,
         type: RequestType.delete,
         responseEntityModel: const EmptyObject(),

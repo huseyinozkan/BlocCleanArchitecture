@@ -52,7 +52,7 @@ final class _Body extends StatelessWidget {
         child: Column(
           children: [
             _MenuRow(onPressed: () => context.pushNamed(RoutePaths.adminOrders.name), title: LocalizationKey.orders.tr(context)),
-            _MenuRow(onPressed: () {}, title: LocalizationKey.categories.tr(context)),
+            _MenuRow(onPressed: () => context.pushNamed(RoutePaths.categories.name), title: LocalizationKey.categories.tr(context)),
             _MenuRow(onPressed: () {}, title: LocalizationKey.products.tr(context)),
             verticalBox48,
           ],
