@@ -8,7 +8,7 @@ import 'package:flutter_core/flutter_core.dart';
 
 @immutable
 final class MyCachedNetworkImage extends StatelessWidget {
-  const MyCachedNetworkImage({required this.imageId, super.key, this.width, this.height, this.fit, this.placeholder, this.errorWidget});
+  const MyCachedNetworkImage({required this.imageId, super.key, this.width, this.height, this.fit, this.placeholder, this.errorWidget, this.cacheKey});
 
   final int? imageId;
   final double? width;
@@ -16,10 +16,12 @@ final class MyCachedNetworkImage extends StatelessWidget {
   final BoxFit? fit;
   final PlaceholderWidgetBuilder? placeholder;
   final LoadingErrorWidgetBuilder? errorWidget;
+  final String? cacheKey;
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
+      cacheKey: cacheKey,
       imageUrl: '${AppConstants.networkConstants.baseUrl}${RequestPath.fileByte.value}/$imageId',
       width: width,
       height: height,

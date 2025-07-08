@@ -82,4 +82,10 @@ final class _BottomSheets {
       ),
     );
   }
+
+  Future<ImageSourceType?> showImageSourcePicker({required BuildContext context}) {
+    return _popupManager.showImageSourcePicker(
+      context: context,
+    );
+  }
 }

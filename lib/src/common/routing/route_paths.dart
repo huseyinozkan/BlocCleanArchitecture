@@ -10,6 +10,8 @@ enum RoutePaths {
   adminOrders('adminOrders', isAuthRequired: true),
   categories('categories', isAuthRequired: true),
   categoryDetail('categoryDetail', isAuthRequired: true),
+  adminProducts('adminProducts', isAuthRequired: true),
+  adminProductDetail('adminProductDetail', isAuthRequired: true),
   pastOrders('pastOrders', isAuthRequired: true),
   addresses('addresses', isAuthRequired: true),
   addressDetail('addressDetail', isAuthRequired: true),

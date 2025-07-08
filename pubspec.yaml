@@ -62,6 +62,10 @@ dependencies:
   flutter_native_contact_picker: ^0.0.10
   in_app_purchase: ^3.2.3
   cached_network_image: ^3.4.1
+  image_picker: ^1.1.2
+  image_cropper: ^9.1.0
+  http_parser: ^4.1.2
+  path: ^1.9.1
 
 dev_dependencies:
   flutter_test:

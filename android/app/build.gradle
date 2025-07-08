@@ -42,3 +42,7 @@ android {
 flutter {
     source = "../.."
 }
+
+dependencies {
+    implementation 'com.huawei.hms:hwid:6.12.0.300'
+}

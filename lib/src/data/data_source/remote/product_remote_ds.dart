@@ -10,10 +10,10 @@ import 'package:injectable/injectable.dart';
 abstract interface class IProductRemoteDS {
   Future<BaseResponse<List<ProductDto>>> findAll();
   Future<BaseResponse<List<ProductDto>>> findAllByCategoryId(int id);
-  Future<BaseResponse<ProductDto>> findById(int id);
+  Future<BaseResponse<ProductDto>> findById(int? id);
   Future<BaseResponse<ProductDto>> save(InsertProductRequest request);
   Future<BaseResponse<ProductDto>> update(UpdateProductRequest request);
-  Future<BaseResponse<EmptyObject>> deleteById(int id);
+  Future<BaseResponse<EmptyObject>> deleteById(int? id);
 }
 
 @LazySingleton(as: IProductRemoteDS)
@@ -38,7 +38,7 @@ final class ProductRemoteDS implements IProductRemoteDS {
       );
 
   @override
-  Future<BaseResponse<ProductDto>> findById(int id) => _networkManager.request<ProductDto, ProductDto>(
+  Future<BaseResponse<ProductDto>> findById(int? id) => _networkManager.request<ProductDto, ProductDto>(
         path: RequestPath.product,
         type: RequestType.get,
         responseEntityModel: const ProductDto(),
@@ -62,7 +62,7 @@ final class ProductRemoteDS implements IProductRemoteDS {
       );
 
   @override
-  Future<BaseResponse<EmptyObject>> deleteById(int id) => _networkManager.request<EmptyObject, EmptyObject>(
+  Future<BaseResponse<EmptyObject>> deleteById(int? id) => _networkManager.request<EmptyObject, EmptyObject>(
         path: RequestPath.product,
         type: RequestType.delete,
         responseEntityModel: const EmptyObject(),

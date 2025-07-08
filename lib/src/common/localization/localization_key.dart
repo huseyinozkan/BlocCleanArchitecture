@@ -142,6 +142,16 @@ enum LocalizationKey {
   editCategory(value: 'editCategory', defaultValue: 'Kategori Düzenle'),
   categoryName(value: 'categoryName', defaultValue: 'Kategori Adı'),
   newCategory(value: 'newCategory', defaultValue: 'Yeni Kategori'),
+  productDetail(value: 'productDetail', defaultValue: 'Ürün Detayı'),
+  newProduct(value: 'newProduct', defaultValue: 'Yeni Ürün'),
+  editProduct(value: 'editProduct', defaultValue: 'Ürün Düzenle'),
+  createProduct(value: 'createProduct', defaultValue: 'Ürün Oluştur'),
+  infoMessageDialogTitle(value: 'infoMessageDialogTitle', defaultValue: 'Bilgilendirme'),
+  productImageRequired(value: 'productImageRequired', defaultValue: 'Ürün resmi gereklidir'),
+  productName(value: 'productName', defaultValue: 'Ürün Adı'),
+  productDescription(value: 'productDescription', defaultValue: 'Ürün Açıklaması'),
+  price(value: 'price', defaultValue: 'Fiyat'),
+  selectCategory(value: 'selectCategory', defaultValue: 'Kategori Seçiniz'),
   ;
 
   const LocalizationKey({required this.value, required this.defaultValue});

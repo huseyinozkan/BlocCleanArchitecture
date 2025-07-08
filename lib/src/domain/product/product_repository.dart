@@ -9,10 +9,10 @@ import 'package:injectable/injectable.dart';
 abstract interface class IProductRepository {
   Future<BaseResponse<List<ProductDto>>> findAll();
   Future<BaseResponse<List<ProductDto>>> findAllByCategoryId(int id);
-  Future<BaseResponse<ProductDto>> findById(int id);
+  Future<BaseResponse<ProductDto>> findById(int? id);
   Future<BaseResponse<ProductDto>> save(InsertProductRequest request);
   Future<BaseResponse<ProductDto>> update(UpdateProductRequest request);
-  Future<BaseResponse<EmptyObject>> deleteById(int id);
+  Future<BaseResponse<EmptyObject>> deleteById(int? id);
 }
 
 @LazySingleton(as: IProductRepository)
@@ -28,7 +28,7 @@ final class ProductRepository implements IProductRepository {
   Future<BaseResponse<List<ProductDto>>> findAllByCategoryId(int id) => _productRemoteDS.findAllByCategoryId(id);
 
   @override
-  Future<BaseResponse<ProductDto>> findById(int id) => _productRemoteDS.findById(id);
+  Future<BaseResponse<ProductDto>> findById(int? id) => _productRemoteDS.findById(id);
 
   @override
   Future<BaseResponse<ProductDto>> save(InsertProductRequest request) => _productRemoteDS.save(request);
@@ -37,5 +37,5 @@ final class ProductRepository implements IProductRepository {
   Future<BaseResponse<ProductDto>> update(UpdateProductRequest request) => _productRemoteDS.update(request);
 
   @override
-  Future<BaseResponse<EmptyObject>> deleteById(int id) => _productRemoteDS.deleteById(id);
+  Future<BaseResponse<EmptyObject>> deleteById(int? id) => _productRemoteDS.deleteById(id);
 }

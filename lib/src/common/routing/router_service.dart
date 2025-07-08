@@ -8,6 +8,8 @@ import 'package:bloc_clean_architecture/src/presentation/account/admin/admin_ope
 import 'package:bloc_clean_architecture/src/presentation/account/admin/admin_orders/view/admin_orders_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/admin/categories/categories/view/categories_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/admin/categories/category_detail/view/category_detail_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/admin/products/admin_product_detail/view/admin_product_detail_view.dart';
+import 'package:bloc_clean_architecture/src/presentation/account/admin/products/admin_products/view/admin_products_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/past_orders/cubit/view/bottom_navigation_bar_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/past_orders/view/past_orders_view.dart';
 import 'package:bloc_clean_architecture/src/presentation/account/settings/view/settings_view.dart';
@@ -21,12 +23,14 @@ import 'package:bloc_clean_architecture/src/presentation/cart/order/view/order_v
 import 'package:bloc_clean_architecture/src/presentation/products/view/products_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_core/flutter_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class IMyRouterService {
   GlobalKey<NavigatorState> get rootNavigatorKey;
   GoRouter get rootRouter;
+  CorePermissionManager get permissionManager;
 }
 
 @LazySingleton(as: IMyRouterService)
@@ -36,6 +40,9 @@ final class MyRouterService implements IMyRouterService {
 
   @override
   GoRouter get rootRouter => _rootRouter;
+
+  @override
+  CorePermissionManager get permissionManager => CorePermissionManager(navigatorKey: rootNavigatorKey);
 
   final _sectionProductsNavigatorKey = GlobalKey<NavigatorState>();
   final _sectionAccountNavigatorKey = GlobalKey<NavigatorState>();
@@ -135,6 +142,23 @@ final class MyRouterService implements IMyRouterService {
                             path: RoutePaths.categoryDetail.asRoutePath,
                             name: RoutePaths.categoryDetail.name,
                             builder: (context, state) => CategoryDetailView(arguments: state.extra as CategoryDetailArguments?),
+                          ),
+                        ],
+                      ),
+
+                      /// Admin Products route
+                      GoRoute(
+                        parentNavigatorKey: rootNavigatorKey,
+                        path: RoutePaths.adminProducts.asRoutePath,
+                        name: RoutePaths.adminProducts.name,
+                        builder: (context, state) => const AdminProductsView(),
+                        routes: [
+                          /// Admin Product Detail route
+                          GoRoute(
+                            parentNavigatorKey: rootNavigatorKey,
+                            path: RoutePaths.adminProductDetail.asRoutePath,
+                            name: RoutePaths.adminProductDetail.name,
+                            builder: (context, state) => AdminProductDetailView(arguments: state.extra as AdminProductDetailArguments?),
                           ),
                         ],
                       ),

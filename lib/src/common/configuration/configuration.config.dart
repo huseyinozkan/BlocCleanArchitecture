@@ -121,6 +121,10 @@ import 'package:bloc_clean_architecture/src/presentation/account/admin/categorie
     as _i38;
 import 'package:bloc_clean_architecture/src/presentation/account/admin/categories/category_detail/cubit/category_detail_cubit.dart'
     as _i960;
+import 'package:bloc_clean_architecture/src/presentation/account/admin/products/admin_product_detail/cubit/admin_product_detail_cubit.dart'
+    as _i268;
+import 'package:bloc_clean_architecture/src/presentation/account/admin/products/admin_products/cubit/admin_products_cubit.dart'
+    as _i988;
 import 'package:bloc_clean_architecture/src/presentation/account/past_orders/cubit/past_orders_cubit.dart'
     as _i187;
 import 'package:bloc_clean_architecture/src/presentation/account/settings/bloc/settings_bloc.dart'
@@ -245,10 +249,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i833.MyPopupManager(gh<_i32.IMyRouterService>()));
     gh.factory<_i38.CategoriesCubit>(
         () => _i38.CategoriesCubit(gh<_i713.ICategoryRepository>()));
-    gh.factory<_i205.BottomNavigationBarCubit>(
-        () => _i205.BottomNavigationBarCubit(gh<_i66.ICartItemRepository>()));
     gh.factory<_i47.CartCubit>(
         () => _i47.CartCubit(gh<_i66.ICartItemRepository>()));
+    gh.factory<_i205.BottomNavigationBarCubit>(
+        () => _i205.BottomNavigationBarCubit(gh<_i66.ICartItemRepository>()));
     gh.lazySingleton<_i397.IOrderRepository>(
         () => _i397.OrderRepository(gh<_i912.IOrderRemoteDS>()));
     gh.factory<_i233.AddressCubit>(
@@ -288,10 +292,10 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.lazySingleton<_i224.AuthBloc>(
         () => _i224.AuthBloc(gh<_i291.IAuthRepository>()));
-    gh.factory<_i688.AccountBloc>(
-        () => _i688.AccountBloc(gh<_i291.IAuthRepository>()));
     gh.factory<_i1031.UpdatePasswordCubit>(
         () => _i1031.UpdatePasswordCubit(gh<_i291.IAuthRepository>()));
+    gh.factory<_i688.AccountBloc>(
+        () => _i688.AccountBloc(gh<_i291.IAuthRepository>()));
     gh.factory<_i249.LoginCubit>(() => _i249.LoginCubit(
           gh<_i291.IAuthRepository>(),
           gh<_i833.IMyPopupManager>(),
@@ -301,13 +305,30 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i1013.SettingsBloc(gh<_i749.ILocalizationRepository>()));
     gh.lazySingleton<_i541.LocalizationBloc>(
         () => _i541.LocalizationBloc(gh<_i749.ILocalizationRepository>()));
+    gh.factory<_i268.AdminProductDetailCubit>(
+        () => _i268.AdminProductDetailCubit(
+              gh<_i57.IProductRepository>(),
+              gh<_i343.IFileRepository>(),
+              gh<_i713.ICategoryRepository>(),
+              gh<_i833.IMyPopupManager>(),
+              gh<_i32.IMyRouterService>(),
+            ));
     gh.factory<_i690.ProductsCubit>(() => _i690.ProductsCubit(
           gh<_i713.ICategoryRepository>(),
           gh<_i57.IProductRepository>(),
           gh<_i66.ICartItemRepository>(),
         ));
+    gh.factory<_i988.AdminProductsCubit>(() => _i988.AdminProductsCubit(
+          gh<_i713.ICategoryRepository>(),
+          gh<_i57.IProductRepository>(),
+        ));
     gh.factory<_i965.OrderDetailBottomSheetCubit>(
         () => _i965.OrderDetailBottomSheetCubit(
+              gh<_i397.IOrderRepository>(),
+              gh<_i833.IMyPopupManager>(),
+            ));
+    gh.factory<_i106.AdminOrderDetailBottomSheetCubit>(
+        () => _i106.AdminOrderDetailBottomSheetCubit(
               gh<_i397.IOrderRepository>(),
               gh<_i833.IMyPopupManager>(),
             ));
@@ -319,11 +340,6 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i397.IOrderRepository>(),
           gh<_i833.IMyPopupManager>(),
         ));
-    gh.factory<_i106.AdminOrderDetailBottomSheetCubit>(
-        () => _i106.AdminOrderDetailBottomSheetCubit(
-              gh<_i397.IOrderRepository>(),
-              gh<_i833.IMyPopupManager>(),
-            ));
     return this;
   }
 }

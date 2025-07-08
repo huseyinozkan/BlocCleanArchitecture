@@ -19,6 +19,17 @@ final class _MyDialogs {
     );
   }
 
+  Future<void> showInfoDialog({required BuildContext context, required String message}) {
+    return _popupManager.showAdaptiveInfoDialog(
+      context: context,
+      title: CoreText.titleMedium(
+        LocalizationKey.infoMessageDialogTitle.tr(context, listen: false),
+        fontWeight: FontWeight.bold,
+      ),
+      content: CoreText.bodyMedium(message),
+    );
+  }
+
   Future<void> showForceUpdateDialog({required BuildContext context, bool? isForceUpdate}) {
     return _popupManager.showUpdateAvailableDialog(
       context: context,

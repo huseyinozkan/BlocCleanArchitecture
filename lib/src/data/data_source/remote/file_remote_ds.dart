@@ -3,16 +3,15 @@ import 'dart:typed_data';
 import 'package:bloc_clean_architecture/src/common/network_manager/base_response.dart';
 import 'package:bloc_clean_architecture/src/common/network_manager/network_manager.dart';
 import 'package:bloc_clean_architecture/src/common/network_manager/request_path.dart';
-import 'package:bloc_clean_architecture/src/data/model/enums/file_type.dart';
 import 'package:bloc_clean_architecture/src/data/model/response/file_dto.dart';
 import 'package:flutter_core/flutter_core.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class IFileRemoteDS {
-  Future<BaseResponse<FileDto>> findById(int id);
+  Future<BaseResponse<FileDto>> findById(int? id);
   Future<BaseResponse<Uint8List>> findByIdByte(int id);
-  Future<BaseResponse<FileDto>> save(FileType fileType, Uint8List file);
-  Future<BaseResponse<FileDto>> update(int id, FileType fileType, Uint8List file);
+  Future<BaseResponse<FileDto>> save(FormData formData);
+  Future<BaseResponse<FileDto>> update(FormData formData);
   Future<BaseResponse<EmptyObject>> deleteById(int id);
 }
 
@@ -23,7 +22,7 @@ final class FileRemoteDS implements IFileRemoteDS {
   final NetworkManager _networkManager;
 
   @override
-  Future<BaseResponse<FileDto>> findById(int id) => _networkManager.request<FileDto, FileDto>(
+  Future<BaseResponse<FileDto>> findById(int? id) => _networkManager.request<FileDto, FileDto>(
         path: RequestPath.file,
         type: RequestType.get,
         responseEntityModel: const FileDto(),
@@ -39,30 +38,19 @@ final class FileRemoteDS implements IFileRemoteDS {
       );
 
   @override
-  Future<BaseResponse<FileDto>> save(FileType fileType, Uint8List file) => _networkManager.request<FileDto, FileDto>(
+  Future<BaseResponse<FileDto>> save(FormData formData) => _networkManager.request<FileDto, FileDto>(
         path: RequestPath.file,
         type: RequestType.post,
         responseEntityModel: const FileDto(),
-        dioFormData: FormData.fromMap(
-          {
-            'fileType': fileType.value,
-            'file': MultipartFile.fromBytes(file),
-          },
-        ),
+        dioFormData: formData,
       );
 
   @override
-  Future<BaseResponse<FileDto>> update(int id, FileType fileType, Uint8List file) => _networkManager.request<FileDto, FileDto>(
+  Future<BaseResponse<FileDto>> update(FormData formData) => _networkManager.request<FileDto, FileDto>(
         path: RequestPath.file,
         type: RequestType.put,
         responseEntityModel: const FileDto(),
-        dioFormData: FormData.fromMap(
-          {
-            'id': id,
-            'fileType': fileType.value,
-            'file': MultipartFile.fromBytes(file),
-          },
-        ),
+        dioFormData: formData,
       );
 
   @override
